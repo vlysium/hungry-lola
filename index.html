@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spil</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main id="game_page">
+      <section id="title">
+        <h1>Hungry Lola</h1>
+      </section>
+      <section id="game_screen">
+        <div id="screen">
+          <div id="game">
+            <div id="game_background"></div>
+            <div id="game_elements">
+              <div id="cod_container_x1">
+                <div id="cod_container1" class="">
+                  <div id="cod_sprite1" class=""></div>
+                </div>
+              </div>
+              <div id="cod_container_x2">
+                <div id="cod_container2" class="">
+                  <div id="cod_sprite2" class=""></div>
+                </div>
+              </div>
+              <div id="cod_container_x3">
+                <div id="cod_container3" class="">
+                  <div id="cod_sprite3" class=""></div>
+                </div>
+              </div>
+              <div id="cod_container_x4">
+                <div id="cod_container4" class="">
+                  <div id="cod_sprite4" class=""></div>
+                </div>
+              </div>
+              <div id="cod_container_x5">
+                <div id="cod_container5" class="">
+                  <div id="cod_sprite5" class=""></div>
+                </div>
+              </div>
+
+              <div id="cucumber_container_x1">
+                <div id="cucumber_container1" class="">
+                  <div id="cucumber_sprite1" class=""></div>
+                </div>
+              </div>
+              <div id="cucumber_container_x2">
+                <div id="cucumber_container2" class="">
+                  <div id="cucumber_sprite2" class=""></div>
+                </div>
+              </div>
+              <div id="cucumber_container_x3">
+                <div id="cucumber_container3" class="">
+                  <div id="cucumber_sprite3" class=""></div>
+                </div>
+              </div>
+            </div>
+            <div id="game_foreground"></div>
+            <div id="game_ui">
+              <div id="energy_board_bg">
+                <div id="energy_board_bottom"></div>
+              </div>
+              <p id="energy_text">lives: <span id="current_life">3</span></p>
+              <div id="energy_bar" class="life3">
+                <div id="energy_bar_progress"></div>
+              </div>
+              <div id="energy_board">
+                <div id="energy_board_top"></div>
+              </div>
+
+              <div id="score_board_bg">
+                <div id="score_board_bottom"></div>
+              </div>
+              <p id="score_text">score: <span id="current_score">0</span>/75</p>
+              <div id="score_bar"><div id="score_bar_progress"></div></div>
+              <div id="score_board">
+                <div id="score_board_top"></div>
+              </div>
+
+              <div id="time_board_bg">
+                <div id="time_board_bottom"></div>
+              </div>
+              <p id="time_text">time: 60</p>
+              <div id="time_bar"><div id="time_bar_progress"></div></div>
+              <div id="time_board">
+                <div id="time_board_top"></div>
+              </div>
+            </div>
+          </div>
+          <div id="start">
+            <div id="button_play"></div>
+          </div>
+          <div id="level_complete">
+            <p class="text">
+              Lola is content and happy! She will now doze off in her bed after a big, fat and delicious meal.
+            </p>
+            <div id="button_restart1"></div>
+            <p class="text" id="final_score1"></p>
+          </div>
+          <div id="game_over1">
+            <p class="text">
+              You caught too many sea cucumbers and scared Lola to DEATH! How could you!? You better try again to gain
+              Lola's trust and feed her again!
+            </p>
+            <p class="text" id="final_score2"></p>
+            <div id="button_restart2"></div>
+          </div>
+          <div id="game_over2">
+            <p class="text">
+              Lola is angry because you failed to satisfy Lola's hunger. The amount of fish you fed her is inadequate,
+              so don't be surprised when she feasts on you in your sleep tonight...
+            </p>
+            <p class="text" id="final_score3"></p>
+            <div id="button_restart3"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="sounds">
+      <audio src="assets/bad_click.wav" id="sound_bad"></audio>
+      <audio src="assets/good_click1.wav" id="sound_good1"></audio>
+      <audio src="assets/good_click2.wav" id="sound_good2"></audio>
+      <audio src="assets/good_click3.wav" id="sound_good3"></audio>
+      <audio src="assets/good_click4.wav" id="sound_good4"></audio>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

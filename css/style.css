@@ -1,0 +1,939 @@
+@font-face {
+  font-family: "ARMTB";
+  src: url("../ARLRDBD.woff2") format("woff2");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 8px;
+  object-fit: cover;
+}
+
+#main_page {
+  margin-top: 4rem;
+}
+
+body {
+  background-color: #223;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #ccd;
+  font-family: "Source Sans Pro", sans-serif;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 8px auto minmax(0, 1200px) auto 8px;
+}
+
+#game_page {
+  display: grid;
+  grid-template-columns: 8px auto minmax(0, 1368px) auto 8px;
+}
+
+section {
+  grid-column: 3/4;
+  margin-bottom: 60px;
+}
+
+/* #region game */
+
+#title {
+  margin-bottom: 1rem;
+}
+
+#screen {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  /* overflow: hidden;*/
+}
+
+#game {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#start {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../svg/main_menu.svg);
+  background-size: cover;
+  z-index: 10;
+}
+
+#button_play {
+  width: 15%;
+  aspect-ratio: 19/7;
+  position: relative;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(../svg/button_play.svg);
+  background-size: cover;
+  z-index: 11;
+  transition: all 0.2s;
+}
+
+#button_play:hover {
+  top: 84%;
+  width: 18%;
+  cursor: pointer;
+}
+
+#game_over1,
+#game_over2,
+#level_complete {
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#game_over1 {
+  background-image: url(../svg/game_over1.svg);
+}
+
+#game_over2 {
+  background-image: url(../svg/game_over2.svg);
+}
+
+#level_complete {
+  background-image: url(../svg/level_complete.svg);
+}
+
+#button_restart1 {
+  width: 15%;
+  aspect-ratio: 22/7;
+  position: relative;
+  top: 87%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(../svg/button_play_again.svg);
+  background-size: cover;
+  z-index: 11;
+  transition: all 0.2s;
+}
+
+#button_restart2,
+#button_restart3 {
+  width: 15%;
+  aspect-ratio: 22/7;
+  position: relative;
+  top: 87%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url(../svg/button_try_again.svg);
+  background-size: cover;
+  z-index: 11;
+  transition: all 0.2s;
+}
+
+#button_restart1:hover,
+#button_restart2:hover,
+#button_restart3:hover {
+  top: 86%;
+  width: 18%;
+  cursor: pointer;
+}
+
+.text {
+  color: #f9e6c5;
+  font-size: clamp(0px, 0px + 2.23vw, 28px);
+  font-family: "ARMTB";
+  position: absolute;
+  top: 47.5%;
+  left: 22%;
+  max-width: 57.5%;
+  line-height: 150%;
+}
+
+#final_score1,
+#final_score2,
+#final_score3 {
+  top: 72.5%;
+}
+
+.hide {
+  display: none;
+}
+
+#game_background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../svg/background.svg);
+  background-size: cover;
+}
+
+#game_elements {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#game_foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../svg/foreground.svg);
+  background-size: cover;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#game_ui {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#cod_container_x1,
+#cod_container_x2,
+#cod_container_x3,
+#cod_container_x4,
+#cod_container_x5 {
+  width: 15%;
+  aspect-ratio: 14/5;
+  position: absolute;
+  top: 100%;
+}
+#cod_container1,
+#cod_container2,
+#cod_container3,
+#cod_container4,
+#cod_container5 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#cod_sprite1,
+#cod_sprite2,
+#cod_sprite3,
+#cod_sprite4,
+#cod_sprite5 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(../svg/cod_frame_2.svg);
+  background-size: cover;
+}
+
+#cucumber_container_x1,
+#cucumber_container_x2,
+#cucumber_container_x3 {
+  width: 12%;
+  aspect-ratio: 105/45;
+  position: absolute;
+  top: 100%;
+}
+#cucumber_container1,
+#cucumber_container2,
+#cucumber_container3 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#cucumber_sprite1,
+#cucumber_sprite2,
+#cucumber_sprite3 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(../svg/sea_cucumber.svg);
+  background-size: cover;
+}
+#energy_bar,
+#score_bar,
+#time_bar {
+  border-radius: 0 2rem 2rem 0;
+  overflow-x: hidden;
+}
+
+#energy_board,
+#energy_board_bg {
+  position: absolute;
+  width: 21.75%;
+  aspect-ratio: 33/13;
+  top: 1%;
+  left: 7.75%;
+  z-index: 3;
+}
+#energy_board_top {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/life_top.svg);
+  background-size: cover;
+}
+#energy_board_bottom {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/life_bottom.svg);
+  background-size: cover;
+}
+#energy_bar {
+  position: absolute;
+  /*width: 13.8%;*/
+  height: 4.5%;
+  top: 9%;
+  left: 14.75%;
+  z-index: 3;
+}
+#energy_bar_progress {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/life_bar.svg);
+  background-size: cover;
+}
+
+#energy_text {
+  position: absolute;
+  top: 4%;
+  left: 16%;
+  z-index: 4;
+  color: #ec5eb3;
+  font-size: clamp(0px, 0px + 2.23vw, 28px);
+  font-family: "ARMTB";
+}
+
+#score_board,
+#score_board_bg {
+  position: absolute;
+  width: 21.75%;
+  aspect-ratio: 33/13;
+  top: 1%;
+  left: 39%;
+  z-index: 3;
+}
+#score_board_top {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/score_top.svg);
+  background-size: cover;
+}
+#score_board_bottom {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/score_bottom.svg);
+  background-size: cover;
+}
+#score_bar {
+  position: absolute;
+  /*width: 13.8%;*/
+  height: 4.5%;
+  top: 9%;
+  left: 46%;
+  z-index: 3;
+  transition: all 0.5s;
+}
+#score_bar_progress {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/score_bar.svg);
+  background-size: cover;
+}
+#score_text {
+  position: absolute;
+  top: 4%;
+  left: 47.25%;
+  z-index: 4;
+  color: #30bbef;
+  font-size: clamp(0px, 0px + 2.23vw, 28px);
+  font-family: "ARMTB";
+}
+
+#time_board,
+#time_board_bg {
+  position: absolute;
+  width: 21.75%;
+  aspect-ratio: 33/13;
+  top: 1%;
+  left: 70.25%;
+  z-index: 3;
+}
+#time_board_top {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/time_top.svg);
+  background-size: cover;
+}
+#time_board_bottom {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/time_bottom.svg);
+  background-size: cover;
+}
+#time_bar {
+  position: absolute;
+  /*width: 13.8%;*/
+  height: 4.5%;
+  top: 9%;
+  left: 77.25%;
+  z-index: 3;
+}
+#time_bar_progress {
+  width: 100%;
+  height: 100%;
+  background-image: url(../svg/time_bar.svg);
+  background-size: cover;
+}
+
+#time_text {
+  position: absolute;
+  top: 4%;
+  left: 78.5%;
+  z-index: 4;
+  color: #fff640;
+  font-size: clamp(0px, 0px + 2.23vw, 28px);
+  font-family: "ARMTB";
+}
+
+/* #endregion game*/
+
+/* #region positions */
+
+.pos1,
+.pos2,
+.pos3,
+.pos4,
+.pos5,
+.pos6,
+.pos7,
+.pos8,
+.pos9,
+.pos10 {
+  top: 100%;
+  position: absolute;
+}
+
+.pos1 {
+  left: 90%;
+}
+
+.pos2 {
+  left: 85%;
+}
+
+.pos3 {
+  left: 80%;
+}
+
+.pos4 {
+  left: 75%;
+}
+
+.pos5 {
+  left: 70%;
+}
+
+.pos6 {
+  left: 65%;
+}
+
+.pos7 {
+  left: 60%;
+}
+
+.pos8 {
+  left: 55%;
+}
+
+.pos9 {
+  left: 50%;
+}
+
+.pos10 {
+  left: 45%;
+}
+
+.pos11 {
+  left: 40%;
+}
+
+.pos12 {
+  left: 35%;
+}
+
+.pos13 {
+  left: 30%;
+}
+
+.pos14 {
+  left: 25%;
+}
+
+.pos15 {
+  left: 20%;
+}
+
+/* #endregion positions */
+
+/* #region delays*/
+
+.delay1 {
+  animation-delay: 0.3s;
+}
+
+.delay2 {
+  animation-delay: 0.6s;
+}
+
+.delay3 {
+  animation-delay: 0.9s;
+}
+
+.delay4 {
+  animation-delay: 1.2s;
+}
+
+.delay5 {
+  animation-delay: 1.5s;
+}
+
+.delay6 {
+  animation-delay: 1.8s;
+}
+
+.delay7 {
+  animation-delay: 2.1s;
+}
+
+.delay8 {
+  animation-delay: 2.4s;
+}
+
+.delay9 {
+  animation-delay: 2.7s;
+}
+
+.delay10 {
+  animation-delay: 3s;
+}
+
+/* #endregion delays*/
+
+/* #region durations */
+
+.speed1 {
+  animation-duration: 1.8s;
+}
+
+.speed2 {
+  animation-duration: 2s;
+}
+
+.speed3 {
+  animation-duration: 2.2s;
+}
+
+.speed4 {
+  animation-duration: 2.4s;
+}
+
+.speed5 {
+  animation-duration: 2.6s;
+}
+
+/* #endregion durations */
+
+/* #region animations */
+
+/* #region element animations*/
+
+.horizontal1 {
+  animation-name: element_horizontal_kf1;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.45, 0.4, 0.55, 0.6);
+}
+@keyframes element_horizontal_kf1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.horizontal2 {
+  animation-name: element_horizontal_kf2;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.45, 0.4, 0.55, 0.6);
+}
+@keyframes element_horizontal_kf2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.horizontal3 {
+  animation-name: element_horizontal_kf3;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.45, 0.4, 0.55, 0.6);
+}
+@keyframes element_horizontal_kf3 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+.horizontal4 {
+  animation-name: element_horizontal_kf4;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.45, 0.4, 0.55, 0.6);
+}
+@keyframes element_horizontal_kf4 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.cod_jump1 {
+  animation-name: cod_jump_kf1;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.6, -0.05, 0.4, 1.05);
+}
+@keyframes cod_jump_kf1 {
+  0% {
+    transform: translateY(0) rotateZ(0);
+  }
+  65% {
+    transform: translateY(-700%) rotateZ(350deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    transform: translateY(0) rotateZ(540deg);
+  }
+}
+
+.cod_jump2 {
+  animation-name: cod_jump_kf2;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.6, -0.05, 0.4, 1.05);
+}
+@keyframes cod_jump_kf2 {
+  0% {
+    transform: translateY(0) rotateZ(0);
+  }
+  65% {
+    transform: translateY(-800%) rotateZ(380deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    transform: translateY(0) rotateZ(540deg);
+  }
+}
+
+.cod_jump3 {
+  animation-name: cod_jump_kf3;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.6, -0.05, 0.4, 1.05);
+}
+@keyframes cod_jump_kf3 {
+  0% {
+    transform: translateY(0) rotateZ(0);
+  }
+  65% {
+    transform: translateY(-500%) rotateZ(330deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    transform: translateY(0) rotateZ(540deg);
+  }
+}
+
+.cod_click {
+  animation-name: cod_click_kf;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.65, 0.1, 0.9, 0.35);
+}
+@keyframes cod_click_kf {
+  100% {
+    transform: rotateZ(540deg) scale(5%);
+    opacity: 0;
+  }
+}
+
+.cucumber_jump1 {
+  animation-name: cucumber_jump_kf1;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.6, -0.05, 0.4, 1.05);
+}
+@keyframes cucumber_jump_kf1 {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  65% {
+    transform: translateY(-600%) rotateZ(375deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    transform: translateY(0) rotateZ(540deg);
+  }
+}
+
+.cucumber_jump2 {
+  animation-name: cucumber_jump_kf2;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.6, -0.05, 0.4, 1.05);
+}
+@keyframes cucumber_jump_kf2 {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  65% {
+    transform: translateY(-700%) rotateZ(340deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    transform: translateY(0) rotateZ(540deg);
+  }
+}
+
+.cucumber_jump3 {
+  animation-name: cucumber_jump_kf3;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.6, -0.05, 0.4, 1.05);
+}
+@keyframes cucumber_jump_kf3 {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  65% {
+    transform: translateY(-400%) rotateZ(390deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  100% {
+    transform: translateY(0) rotateZ(540deg);
+  }
+}
+
+.cucumber_click {
+  animation-name: cucumber_click_kf;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes cucumber_click_kf {
+  5% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  10% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  15% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  20% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  25% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  30% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  35% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  40% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  45% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  50% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  55% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  60% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  65% {
+    transform: scale(90%, 120%) rotateZ(15deg);
+  }
+  70% {
+    transform: scale(120%, 90%) rotateZ(-15deg);
+  }
+  75% {
+    transform: scale(100%) rotateZ(15deg);
+  }
+  80% {
+    transform: rotateZ(-15deg);
+  }
+  85% {
+    transform: rotateZ(15deg);
+    filter: blur(0);
+  }
+  90% {
+    transform: rotateZ(-15deg);
+  }
+  95% {
+    transform: rotateZ(0);
+    opacity: 100%;
+  }
+  100% {
+    filter: blur(100px);
+    opacity: 0;
+    transform: scale(500%);
+  }
+}
+
+.animation_pause {
+  animation-play-state: paused;
+  pointer-events: none;
+}
+
+/* #endregion element animations*/
+
+.life3 {
+  width: 13.8%;
+}
+
+.life2 {
+  animation-name: life_2_kf;
+  animation-timing-function: cubic-bezier(0, 1, 0.3, 1);
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+@keyframes life_2_kf {
+  0% {
+    width: 13.8%;
+    filter: hue-rotate(41.6deg) saturate(250%);
+  }
+  30% {
+    filter: hue-rotate(41.6deg) saturate(200%);
+  }
+  100% {
+    width: 9.2%;
+    filter: hue-rotate(0) saturate(100%);
+  }
+}
+
+.life1 {
+  animation-name: life_1_kf;
+  animation-timing-function: cubic-bezier(0, 1, 0.3, 1);
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+@keyframes life_1_kf {
+  0% {
+    width: 9.2%;
+    filter: hue-rotate(41.6deg) saturate(250%);
+  }
+  30% {
+    filter: hue-rotate(41.6deg) saturate(200%);
+  }
+  100% {
+    width: 4.6%;
+    filter: hue-rotate(0) saturate(100%);
+  }
+}
+
+.life0 {
+  animation-name: life_0_kf;
+  animation-timing-function: cubic-bezier(0, 1, 0.3, 1);
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+@keyframes life_0_kf {
+  0% {
+    width: 4.6%;
+    filter: hue-rotate(41.6deg) saturate(250%);
+  }
+  30% {
+    filter: hue-rotate(41.6deg) saturate(200%);
+  }
+  100% {
+    width: 0;
+    filter: hue-rotate(0) saturate(100%);
+  }
+}
+
+.timer {
+  animation-name: time_kf;
+  animation-timing-function: linear;
+  animation-duration: 60s;
+  animation-fill-mode: both;
+}
+@keyframes time_kf {
+  0% {
+    width: 13.8%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.internal_second_counter {
+  animation-name: ic_kf;
+  animation-duration: 1s;
+  animation-iteration-count: 61;
+}
+@keyframes ic_kf {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* #endregion animations */
